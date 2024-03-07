@@ -53,5 +53,12 @@ public class BranchesController
 		return new ResponseEntity<BranchesDto>(req,HttpStatus.CREATED);
 		
 	}
+      @GetMapping("/getBranch/{id}")
+        public void getBarnch(@PathVariable("id") Integer i){
+         
+         
+
+        }
+ 
 
 }
