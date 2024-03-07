@@ -55,7 +55,7 @@ public class BranchesController
 	}
       @GetMapping("/getBranch/{id}")
         public void getBarnch(@PathVariable("id") Integer i){
-         
+         int a=10;
          
 
         }
