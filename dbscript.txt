@@ -1,0 +1,66 @@
+1)organization
+create table organization
+(organization_id int primary key 
+auto_increment,
+organization_name varchar(88),
+organization_address varchar(99),
+created_by varchar(99),
+updated_by varchar(77),
+created_date_time timestamp,
+updated_date_time timestamp);
+
+2)branches
+create table branches(branch_id int primary key auto_increment,
+branch_name varchar(77),
+branch_address varchar(80),
+organizationId int,
+foreign key(organizationId) references organization(organization_id),
+created_by varchar(88),
+updated_by varchar(88),
+created_date timestamp,
+updated_date timestamp);
+
+
+3)employee_details
+create table employee_details(employee_id int primary key auto_increment,
+employee_name varchar(99),
+employee_designarion varchar(88),
+employee_deparment varchar(88),
+reporting_emp_id int,
+auditor_id int,
+finance_id int,
+branch_id int,
+foreign key(branch_id) references branches(branch_id),
+created_by varchar(77),
+updated_by varchar(66),
+created_date_time timestamp,
+updated_date_time timestamp);
+
+
+
+4)Expence_details
+create table expence_details(id int primary key auto_increment ,
+expence_type varchar(88), 
+expence_amount double,
+expence_location varchar(88),
+expence_attachmemt varchar(99),
+expence_status varchar(77),
+employee_id int,
+foreign key(employee_id) references employee_details(employee_id),
+expence_date date,
+expence_time time,
+created_by varchar(66),
+updated_by varchar(77),
+created_time timestamp,
+updated_time timestamp);
+
+5)Expence_tatus_History
+create table expence_status_history(id int primary key auto_increment,
+expence_id int ,foreign key(expence_id) references expence_details(id),
+expence_status varchar(88),
+employee_id int,foreign key(employee_id) references employee_details(employee_id),
+expence_status_date_time timestamp,
+created_by varchar(77),
+updated_by varchar(77),
+created_date_time timestamp,
+updated_date_time timestamp);
